@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<svg width="340" height="360" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" class="page showed" data-page-height="222" data-page-width="222">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="defaultGradient" x1="0" x2="1" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#464646"/>
+   <stop offset="1" stop-color="#868686"/>
+  </linearGradient>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g class="content" id="svg_1" transform="matrix(1.81474, 0, 0, 1.81474, 421.128, -45.6336)">
+   <g class="layers" id="svg_2">
+    <g class="layer" data-layer-color="#007fff" data-layer-name="first layer" id="svg_3">
+     <path d="m375.163812,225.430014l17.03916,-41.57696a0.47791,0.47791 0 0 1 0.85507,-0.0575l20.70544,40.81494c-6.18902,8.19077 -29.77429,8.29587 -38.59967,0.81952z" fill="url(#defaultGradient)" id="svg_4" stroke="#FFFFFF" stroke-width="6" transform="matrix(-0.573576, -0.819152, 0.819152, -0.573576, -154.368, 593.998)"/>
+     <path d="m57.054078,275.892024l17.04139,-42.13791a0.5005,0.5005 0 0 1 0.91177,-0.03592l20.64651,41.35431c-6.18902,8.19077 -29.77429,8.29587 -38.59967,0.81952z" fill="url(#defaultGradient)" id="svg_5" stroke="#FFFFFF" stroke-width="6" transform="matrix(0.707106, -0.707106, 0.707106, 0.707106, -437.012, -84.6777)"/>
+    </g>
+    <g class="layer" data-layer-color="#ffff00" data-layer-name="Layer 2" id="svg_6">
+     <ellipse cx="-249.924786" cy="17.536879" fill="url(#defaultGradient)" id="svg_7" rx="76.5" ry="76.5" stroke="#FFFFFF" stroke-width="8" transform="matrix(1, 0, 0, 1, 108.659, 87.2655)"/>
+    </g>
+    <g class="layer" data-layer-color="#7fff00" data-layer-name="Layer 3" id="svg_8">
+     <path d="m496.103036,422.678391l16.95349,-41.92059a0.60623,0.60623 0 0 1 1.10441,-0.04349l20.54177,41.14456c-6.18902,8.19077 -29.77429,8.29587 -38.59967,0.81952z" fill="url(#defaultGradient)" id="svg_9" stroke="#FFFFFF" stroke-width="6" transform="matrix(-1, -1.22465e-16, 1.22465e-16, -1, 376.368, 600.914)"/>
+     <path d="m403.894568,634.883043l17.05298,-42.16659a0.48653,0.48653 0 0 1 0.88635,-0.03492l20.66034,41.38199c-6.18902,8.19077 -29.77429,8.29587 -38.59967,0.81952z" fill="url(#defaultGradient)" id="svg_10" stroke="#FFFFFF" stroke-width="6" transform="matrix(-0.573576, 0.819152, -0.819152, -0.573576, 678.183, 156.711)"/>
+     <path d="m81.855256,629.339419l17.10511,-42.29544a0.42386,0.42386 0 0 1 0.77215,-0.03043l20.72241,41.50635c-6.18902,8.19077 -29.77429,8.29587 -38.59967,0.81952z" fill="url(#defaultGradient)" id="svg_11" stroke="#FFFFFF" stroke-width="6" transform="matrix(0.707106, 0.707107, -0.707107, 0.707106, 278.95, -457.694)"/>
+     <path fill="none" id="svg_12" stroke="#000000" stroke-width="0.580183"/>
+     <path d="m122.625392,129.787757l17.59135,-34.28595a0.43009,0.40134 0 0 1 0.78354,-0.02881l19.62511,35.21759c-5.33431,19.25074 -31.71094,19.87729 -38,-0.90283z" fill="url(#defaultGradient)" id="svg_13" stroke="#FFFFFF" stroke-width="5.356612" transform="matrix(0.303161, -0.952939, 0.952939, 0.303161, -327.215, 196.397)"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

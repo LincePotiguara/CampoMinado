@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CampoMinado:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>CampoMinado</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="CampoMinado-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="CampoMinado:war exploded" />
+    </root>
+  </artifact>
+</component>

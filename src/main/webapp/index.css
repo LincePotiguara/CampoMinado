@@ -1,0 +1,67 @@
+/* O teste vai ser feito usando o Chrome */
+
+.menu-nav-center {
+    height: 100%;
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.menu-nav-side {
+    height: 100%;
+    width: 320px;
+    padding: 0 0 0 10px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    /*padding-top: 20px;*/
+}
+
+.menu-nav-side a:hover {
+    color: #525252;
+}
+.menu-nav-side a {
+    font-size: 25px;
+    display: block;
+}
+.menu-nav-side h1 {
+    font-size: 44px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.menu-nav-side:hover{
+    /*Mozilla*/
+    scrollbar-width: none;
+}
+.menu-nav-side:hover::-webkit-scrollbar{
+    display: none;
+    /*Chromium*/
+}
+.main {
+    background-color: #f3f3f3;
+    padding: 0 10px;
+    margin: 0 0;
+    margin-left: 330px; /* 320 + 10 para simular padding */
+}
+
+html body{
+    background-color: #f3f3f3;
+    margin: 0 0;
+}
