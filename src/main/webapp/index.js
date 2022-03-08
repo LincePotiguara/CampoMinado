@@ -7,7 +7,7 @@ function loadDoc() {
     xhttp.send();
 }
 
-function ApiResponse(action)
+function ApiResponse(action, param)
 {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function()
@@ -17,7 +17,7 @@ function ApiResponse(action)
     apiRedirect = "./api/hello?value=1";
     switch (action)
     {
-        case "novo jogo":   {apiRedirect = "./api/novo-jogo"} break;
+        case "novo jogo":   {apiRedirect = "./api/novo-jogo?tamanho=" + param} break;
         case "continuar":   {apiRedirect = "./api/continuar"} break;
         case "dificuldade": {apiRedirect = "./api/dificuldade"} break;
         case "creditos":    {apiRedirect = "./api/creditos"} break;

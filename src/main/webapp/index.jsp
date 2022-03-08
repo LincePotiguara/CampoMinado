@@ -15,7 +15,7 @@
         <jsp:useBean id="incrementer" scope="application" class="br.ufrj.ic.campominado.MyIncrement"></jsp:useBean>
         <jsp:getProperty name="incrementer" property="x"/>
     </p>
-    <p><a onclick="ApiResponse('novo jogo')">Novo Jogo</a></p>
+    <p><a onclick="ApiResponse('novo jogo', '10x10')">Novo Jogo</a></p>
     <p><a onclick="ApiResponse('continuar')">Continuar</a></p>
     <p><a onclick="ApiResponse('dificuldade')">Dificuldade</a></p>
     <p><a onclick="ApiResponse('creditos')">Créditos</a></p>
