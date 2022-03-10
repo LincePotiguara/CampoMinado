@@ -1,11 +1,3 @@
-function loadDoc() {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
-        document.getElementById("demo").innerHTML = this.responseText;
-    }
-    xhttp.open("GET", "./api/hello?value=1", true);
-    xhttp.send();
-}
 
 function ApiResponse(action, param)
 {
@@ -18,7 +10,7 @@ function ApiResponse(action, param)
     switch (action)
     {
         case "novo jogo":   {apiRedirect = "./api/novo-jogo?tamanho=" + param} break;
-        case "continuar":   {apiRedirect = "./api/continuar"} break;
+        case "continuar":   {apiRedirect = "./api/continuar?clique=" + param} break;
         case "dificuldade": {apiRedirect = "./api/dificuldade"} break;
         case "creditos":    {apiRedirect = "./api/creditos"} break;
     }

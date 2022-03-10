@@ -1,7 +1,9 @@
 package br.ufrj.ic.campominado;
 
 import javax.ws.rs.*;
-import java.util.Locale;
+
+import static java.lang.String.valueOf;
+
 
 @Path("continuar")
 public class ContinuarResource {
@@ -16,19 +18,25 @@ public class ContinuarResource {
             case "20x20": linha = 20; break;
         }
 
-        tabuleiro.append("<div style=\"background-color: blue;display: flex;\">");
+        String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        //Todo: debug
+
+        tabuleiro.append("<div style=\"display: flex;\">");
+
         for(int i = 0; i < linha; i++) {
-            tabuleiro.append("<div class='quadrado'>#</div>");
-            //tabuleiro.append("<td><div class='cell-content'>#</div></td>");
-        }
-        tabuleiro.append("</div>");
-        //String temp = tabuleiro.append("<br>").toString();
-        String temp = tabuleiro.toString();
-        for(int i = 0; i < linha; i++) {
+            String temp = "<a onclick=\"ApiResponse('continuar', '$letra$numero')\"><div id='$letra$numero'class='quadrado'>$letra$numero</div></a>".replace(
+                    "$numero", valueOf(i));
             tabuleiro.append(temp);
         }
-        //tabuleiro.insert(0,"<table id='table-data' cellpadding=0 cellspacing=0>");
-        //tabuleiro.append("</table>");
+        tabuleiro.append("</div>");
+        String temp = tabuleiro.toString();
+        String template = tabuleiro.toString();
+        tabuleiro = new StringBuilder();
+        for(int i = 0; i < linha; i++) {
+            String temp2 = temp.replace(
+                    "$letra", valueOf(alfabeto.charAt(i)));
+            tabuleiro.append(temp2);
+        }
         // Essa função cria o campo. Modifique a classe quadrado e o style inline para mudar o estilo
         // |
         // V

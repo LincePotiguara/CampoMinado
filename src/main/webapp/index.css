@@ -74,112 +74,16 @@ a.hover-text:hover {
     font-family: 'Courier New', monospace;
 }
 
-
-/*isso pode funcionar*/
 .quadrado {
     float: left;
     width:25px;
     height:25px;
     display:block;
     overflow:hidden;
-    background: gold;
+    /*background: gold;*/
     border: 1px solid;
     margin: 1px;
     text-align: center;
     vertical-align: middle;
     line-height: 25px;
 }
-
-
-
-
-/*
-table {
-    width: 50%;
-}
-td {
-    width: calc(33.33% / 10);
-    position: relative;
-    border: 1px solid;
-}
-td:after {
-    content: '';
-    display: block;
-    margin-top: 100%;
-}
-td .cell-content {
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: gold;
-}
-*/
-
-
-
-/*
-#table-data {
-    font-family: 'Courier New', monospace;
-}
-table {
-    border-collapse:collapse;
-    border: 1px solid #000;
-}
-td {
-  width: 33.33%;
-  position: relative;
-}
-
-td:after {
-  content: '';
-  display: block;
-  margin-top: 100%;
-}
-
-td {
-
-    border: 1px solid #000;
-    text-align:center;
-    width: 20px;
-    height: 20px;
-
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-}
-cell-content
- */
-
-
-
-/*
-
-table {
-  width: 50%;
-}
-td {
-  width: calc(33.33% / 10);
-  position: relative;
-  border: 1px solid;
-}
-td:after {
-  content: '';
-  display: block;
-  margin-top: 100%;
-}
-td .cell-content {
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: gold;
-}
-
-*/
