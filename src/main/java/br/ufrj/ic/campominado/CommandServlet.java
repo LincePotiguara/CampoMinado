@@ -7,8 +7,9 @@ import javax.ws.rs.*;
 @Path("hello")
 public class CommandServlet {
     public static int[][] matriz;
+    public static int tamanhoMatriz;
     public static void reset(int tamanho) {
-        val = "";
+        tamanhoMatriz = tamanho;
         matriz = initMatriz(tamanho);
     }
 
@@ -24,6 +25,12 @@ public class CommandServlet {
 
     public static int[][] getMatriz() {
         return matriz;
+    }
+
+    public static void clique(int linha, int coluna) {
+        if(linha < tamanhoMatriz && coluna < tamanhoMatriz ) {
+            matriz[linha][coluna] = 0;
+        }
     }
 
     private static String val = "";

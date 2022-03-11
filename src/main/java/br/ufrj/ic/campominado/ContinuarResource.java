@@ -28,17 +28,21 @@ public class ContinuarResource {
             case "15x15": tamanhoTabuleiro = 15; break;
             case "20x20": tamanhoTabuleiro = 20; break;
         }
-        //CommandServlet.reset(tamanhoTabuleiro);
+        int m_linha;
+        int m_coluna;
+        if(linha != null && coluna != null) {
+            m_coluna = Integer.parseInt(coluna);
+            m_linha = Integer.parseInt(linha);
+            CommandServlet.clique(m_linha, m_coluna);
+        }
 
         String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        //Todo: debug
 
         tabuleiro.append("<div style=\"display: flex;\">");
 
         for(int i = 0; i < tamanhoTabuleiro; i++) {
             String temp = "<a onclick=\"ApiResponse('continuar', '$tamanho','$dificuldade', '$linha', '$coluna')\"><div id='$linha$coluna'class='quadrado'>#caractere</div></a>".replace(
                     "$coluna", valueOf(i))
-//                    .replaceFirst("$caractere", "#")
                     .replace("$tamanho", tamanho)
                     .replace("$dificuldade", dificuldade);
             tabuleiro.append(temp);
@@ -58,20 +62,19 @@ public class ContinuarResource {
         tabuleiro.insert(0, "<div style=\"display: inline-block;\">");
         tabuleiro.append("</div>");
 
-        String s = tamanho + "=" + linha +" + " + coluna + " + " + dificuldade;
+        String s = tamanho +" {"+ linha +" : " + coluna + "} - " + dificuldade;
         String resposta = tabuleiro.toString();
-        /*
+
         int[][] campo = CommandServlet.getMatriz();
-        if (campo.length < tamanhoTabuleiro){
-            return resposta + s;
+        if (campo == null){
+            return resposta + "Campo eh null " + s;
         }
+
         for (int i = 0; i < tamanhoTabuleiro; i++) {
             for (int j = 0; j < tamanhoTabuleiro; j++) {
-                resposta.replaceFirst("#caractere", String.valueOf(campo[i][j]));
+                resposta = resposta.replaceFirst("#caractere", String.valueOf(campo[i][j]));
             }
         }
-         */
-        return tabuleiro.toString() + "-" + s;
-        //return resposta;
+        return resposta + s;
     }
 }

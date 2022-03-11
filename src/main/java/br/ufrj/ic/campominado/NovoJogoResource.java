@@ -13,7 +13,7 @@ import javax.ws.rs.core.UriInfo;
 @Path("novo-jogo")
 public class NovoJogoResource {
     @GET
-    public Response app(@QueryParam("tamanho") @DefaultValue("") String tamanho,
+    public Response app(@QueryParam("tamanho") @DefaultValue("10x10") String tamanho,
                         @QueryParam("dificuldade") @DefaultValue("") String dificuldade,
                         @QueryParam("linha") String linha, // valor default é null
                         @QueryParam("coluna") String coluna, // valor default é null
@@ -21,7 +21,14 @@ public class NovoJogoResource {
                         @Context UriInfo uriInfo) {
 
         // reseta o estado da aplicação
-        int m_tamanho = Integer.parseInt(tamanho.split("x")[0]);
+        int m_tamanho = 0;
+
+        switch (tamanho) {
+            case "10x10": m_tamanho = 10; break;
+            case "15x15": m_tamanho = 15; break;
+            case "20x20": m_tamanho = 20; break;
+        }
+        //int m_tamanho = Integer.parseInt(tamanho.split("x")[0]);
         //int m_linha = Integer.parseInt(linha);
         //int m_coluna = Integer.parseInt(coluna);
         CommandServlet.reset(m_tamanho);
