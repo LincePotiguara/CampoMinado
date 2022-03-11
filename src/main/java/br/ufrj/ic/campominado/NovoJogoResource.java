@@ -7,7 +7,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
 
@@ -15,20 +14,24 @@ import javax.ws.rs.core.UriInfo;
 public class NovoJogoResource {
     @GET
     public Response app(@QueryParam("tamanho") @DefaultValue("") String tamanho,
-                        @QueryParam("linha") @DefaultValue("") String linha,
-                        @QueryParam("coluna") @DefaultValue("") String coluna,
                         @QueryParam("dificuldade") @DefaultValue("") String dificuldade,
+                        @QueryParam("linha") String linha, // valor default é null
+                        @QueryParam("coluna") String coluna, // valor default é null
                         @Context HttpServletRequest request,
                         @Context UriInfo uriInfo) {
+
         // reseta o estado da aplicação
-        //CommandServlet.reset();
+        int m_tamanho = Integer.parseInt(tamanho.split("x")[0]);
+        //int m_linha = Integer.parseInt(linha);
+        //int m_coluna = Integer.parseInt(coluna);
+        CommandServlet.reset(m_tamanho);
 
         return Response.status(302).location(
                 uriInfo.getBaseUriBuilder().path("continuar")
                         .queryParam("tamanho", request.getParameter("tamanho"))
                         .queryParam("dificuldade", request.getParameter("dificuldade"))
-                        .queryParam("linha", request.getParameter("linha"))
-                        .queryParam("coluna", request.getParameter("coluna"))
+                        //.queryParam("linha", uriInfo.getQueryParameters().getFirst("linha"))
+                        //.queryParam("coluna", uriInfo.getQueryParameters().getFirst("coluna"))
                         .build()
         ).build();
     }

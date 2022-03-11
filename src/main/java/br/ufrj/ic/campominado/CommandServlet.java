@@ -13,11 +13,17 @@ public class CommandServlet {
     }
 
     public static int[][] initMatriz(int tamanho) {
-        return new int[tamanho][tamanho];
+        matriz = new int[tamanho][tamanho];
+        for(int i = 0; i < tamanho; i++) {
+            for(int j = 0; j < tamanho; j++) {
+                matriz[i][j] = 10*i + j;
+            }
+        }
+        return matriz;
     }
 
-    public static String printMatrix() {
-        return "";
+    public static int[][] getMatriz() {
+        return matriz;
     }
 
     private static String val = "";

@@ -1,9 +1,8 @@
 package br.ufrj.ic.campominado;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 
 import static java.lang.String.valueOf;
 
@@ -13,13 +12,14 @@ public class ContinuarResource {
     @GET
     @Produces("text/html")
     public String tabuleiro(@QueryParam("tamanho") @DefaultValue("") String tamanho,
-                            @QueryParam("linha") @DefaultValue("") String linha,
-                            @QueryParam("coluna") @DefaultValue("") String coluna,
-                            @QueryParam("dificuldade") @DefaultValue("") String dificuldade
-//                            @Context HttpServletRequest request
-//                            @Context HttpServletResponse response
-    ) {
+                            @QueryParam("dificuldade") @DefaultValue("") String dificuldade,
+                            @QueryParam("linha") String linha,
+                            @QueryParam("coluna") String coluna,
+                            @Context UriInfo uriInfo
+                            ) {
         StringBuilder tabuleiro = new StringBuilder();
+        linha = uriInfo.getQueryParameters().getFirst("linha");
+        coluna = uriInfo.getQueryParameters().getFirst("coluna");
 
         int tamanhoTabuleiro = 0;
 
@@ -28,6 +28,7 @@ public class ContinuarResource {
             case "15x15": tamanhoTabuleiro = 15; break;
             case "20x20": tamanhoTabuleiro = 20; break;
         }
+        //CommandServlet.reset(tamanhoTabuleiro);
 
         String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         //Todo: debug
@@ -35,21 +36,21 @@ public class ContinuarResource {
         tabuleiro.append("<div style=\"display: flex;\">");
 
         for(int i = 0; i < tamanhoTabuleiro; i++) {
-            String temp = "<a onclick=\"ApiResponse('continuar', '$tamanho','$dificuldade', '$letra', '$numero')\"><div id='$letra$numero'class='quadrado'>$caractere</div></a>".replace(
-                    "$numero", valueOf(i))
+            String temp = "<a onclick=\"ApiResponse('continuar', '$tamanho','$dificuldade', '$linha', '$coluna')\"><div id='$linha$coluna'class='quadrado'>#caractere</div></a>".replace(
+                    "$coluna", valueOf(i))
+//                    .replaceFirst("$caractere", "#")
                     .replace("$tamanho", tamanho)
-                    .replace("$dificuldade", dificuldade)
-                    .replace("$caractere", "#");
+                    .replace("$dificuldade", dificuldade);
             tabuleiro.append(temp);
         }
         tabuleiro.append("</div>");
-        String temp = tabuleiro.toString();
         String template = tabuleiro.toString();
+
         tabuleiro = new StringBuilder();
         for(int i = 0; i < tamanhoTabuleiro; i++) {
-            String temp2 = temp.replace(
-                    "$letra", valueOf(i));
-            tabuleiro.append(temp2);
+            String temp = template.replace(
+                    "$linha", valueOf(i));
+            tabuleiro.append(temp);
         }
         // Essa função cria o campo. Modifique a classe quadrado e o style inline para mudar o estilo
         // |
@@ -57,15 +58,20 @@ public class ContinuarResource {
         tabuleiro.insert(0, "<div style=\"display: inline-block;\">");
         tabuleiro.append("</div>");
 
-        //linha = l1[1].split("=")
-        String[] ret;
-        /*
-        if(l1.length > 1){
-         ret = l1[1].split("=");
-            String s = linha +" + " + coluna;
-            return s;
-        }*/
         String s = tamanho + "=" + linha +" + " + coluna + " + " + dificuldade;
+        String resposta = tabuleiro.toString();
+        /*
+        int[][] campo = CommandServlet.getMatriz();
+        if (campo.length < tamanhoTabuleiro){
+            return resposta + s;
+        }
+        for (int i = 0; i < tamanhoTabuleiro; i++) {
+            for (int j = 0; j < tamanhoTabuleiro; j++) {
+                resposta.replaceFirst("#caractere", String.valueOf(campo[i][j]));
+            }
+        }
+         */
         return tabuleiro.toString() + "-" + s;
+        //return resposta;
     }
 }
