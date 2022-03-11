@@ -1,22 +1,5 @@
 /* O teste vai ser feito usando o Chrome */
 
-.menu-nav-center {
-    height: 100%;
-    width: fit-content;
-    padding-left: 10px;
-    padding-right: 10px;
-    align-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
-
 .menu-nav-side {
     height: 100%;
     width: 320px;
@@ -41,7 +24,7 @@
     display: block;
 }
 .menu-nav-side h1 {
-    font-size: 44px;
+    font-size: 40px;
     display: block;
     overflow: hidden;
     white-space: nowrap;
@@ -64,4 +47,38 @@
 html body{
     background-color: #f3f3f3;
     margin: 0 0;
+}
+
+a.hover-text:hover {
+    color: #15587a;
+    font-size: 100%;
+}
+#table-data {
+    font-family: 'Courier New', monospace;
+}
+
+.quadrado {
+    float: left;
+    width:25px;
+    height:25px;
+    display:block;
+    overflow:hidden;
+    /*background: gold;*/
+    border: 1px solid;
+    margin: 1px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+}
+
+.revelado {
+    background-color: pink;
+}
+
+.numero {
+    background-color: gold;
+}
+
+.escondido {
+    background-color: gray;
 }
