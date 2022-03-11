@@ -1,8 +1,9 @@
 package br.ufrj.ic.campominado;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
-
-import java.util.Arrays;
+import javax.ws.rs.core.Context;
 
 import static java.lang.String.valueOf;
 
@@ -13,16 +14,15 @@ public class ContinuarResource {
     @Produces("text/html")
     public String tabuleiro(@QueryParam("tamanho") @DefaultValue("") String tamanho,
                             @QueryParam("linha") @DefaultValue("") String linha,
-                            @QueryParam("coluna") @DefaultValue("") String coluna) {
+                            @QueryParam("coluna") @DefaultValue("") String coluna,
+                            @QueryParam("dificuldade") @DefaultValue("") String dificuldade
+//                            @Context HttpServletRequest request
+//                            @Context HttpServletResponse response
+    ) {
         StringBuilder tabuleiro = new StringBuilder();
-        String[] l1 = tamanho.split(":");
-        tamanho = l1[0];
-        if(l1.length > 1){
-            linha = l1[1].split("=")[1];
-            coluna = l1[2].split("=")[1];
-        }
 
         int tamanhoTabuleiro = 0;
+
         switch (tamanho) {
             case "10x10": tamanhoTabuleiro = 10; break;
             case "15x15": tamanhoTabuleiro = 15; break;
@@ -35,8 +35,10 @@ public class ContinuarResource {
         tabuleiro.append("<div style=\"display: flex;\">");
 
         for(int i = 0; i < tamanhoTabuleiro; i++) {
-            String temp = "<a onclick=\"ApiResponse('jogando', '$tamanho', '$letra', '$numero')\"><div id='$letra$numero'class='quadrado'>$letra$numero</div></a>".replace(
-                    "$numero", valueOf(i)).replace("$tamanho", tamanho);
+            String temp = "<a onclick=\"ApiResponse('continuar', '$tamanho','$dificuldade', '$letra', '$numero')\"><div id='$letra$numero'class='quadrado'>$letra$numero</div></a>".replace(
+                    "$numero", valueOf(i))
+                    .replace("$tamanho", tamanho)
+                    .replace("$dificuldade", dificuldade);
             tabuleiro.append(temp);
         }
         tabuleiro.append("</div>");
@@ -62,7 +64,7 @@ public class ContinuarResource {
             String s = linha +" + " + coluna;
             return s;
         }*/
-        String s = tamanho + "=" + linha +" + " + coluna;
+        String s = tamanho + "=" + linha +" + " + coluna + " + " + dificuldade;
         return tabuleiro.toString() + "-" + s;
     }
 }

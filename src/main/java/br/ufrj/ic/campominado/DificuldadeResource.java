@@ -1,19 +1,16 @@
 package br.ufrj.ic.campominado;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 
 @Path("dificuldade")
 public class DificuldadeResource {
     @GET
     @Produces("text/html")
-    public String dificuldade() {
+    public String dificuldade(@QueryParam("tamanho") @DefaultValue("") String tamanho) {
         return "<center>"
-                + "<p><h2>Selecione o tamanho do tabuleiro</h2></p>"
-                + "<p><a onclick=\"ApiResponse('novo jogo', '10x10')\" class='hover-text' >Pequeno (10x10)</a></p>"
-                + "<p><a onclick=\"ApiResponse('novo jogo', '15x15')\" class='hover-text' >Médio (15x15)</a></p>"
-                + "<p><a onclick=\"ApiResponse('novo jogo', '20x20')\" class='hover-text' >Grande (20x20)</a></p>"
+                + "<p><h2>Selecione a quantidade de bombas</h2></p>"
+                + "<p><a onclick=\"ApiResponse('reset', '" + tamanho + "', 'facil')\" class='hover-text' >Fácil (10%)</a></p>"
+                + "<p><a onclick=\"ApiResponse('reset', '" + tamanho + "', 'dificil')\" class='hover-text' >Difícil (25%)</a></p>"
                 + "</center>";
     }
 }

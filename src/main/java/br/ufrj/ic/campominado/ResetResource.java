@@ -7,12 +7,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
 
-@Path("novo-jogo")
-public class NovoJogoResource {
+@Path("reset")
+public class ResetResource {
     @GET
     public Response app(@QueryParam("tamanho") @DefaultValue("") String tamanho,
                         @QueryParam("linha") @DefaultValue("") String linha,
@@ -20,6 +19,7 @@ public class NovoJogoResource {
                         @QueryParam("dificuldade") @DefaultValue("") String dificuldade,
                         @Context HttpServletRequest request,
                         @Context UriInfo uriInfo) {
+
         // reseta o estado da aplicação
         CommandServlet.reset();
 

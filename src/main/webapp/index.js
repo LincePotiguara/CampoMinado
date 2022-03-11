@@ -1,5 +1,5 @@
 
-function ApiResponse(action, param, param1, param2)
+function ApiResponse(action, param_tam, param_dif, param_lin, param_col)
 {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function()
@@ -9,10 +9,11 @@ function ApiResponse(action, param, param1, param2)
     apiRedirect = "./api/hello?value=1";
     switch (action)
     {
-        case "novo jogo":   {apiRedirect = "./api/novo-jogo?tamanho=" + param} break;
-        case "continuar":   {apiRedirect = "./api/continuar?linha=" + param + "?coluna=" + param2} break;
-        case "jogando":     {apiRedirect = "./api/continuar?tamanho=" + param + ":linha=" + param1 + ":coluna=" + param2} break;
-        case "dificuldade": {apiRedirect = "./api/dificuldade"} break;
+        case "novo jogo":   {apiRedirect = "./api/tamanho"} break;
+        case "reset":       {apiRedirect = "./api/continuar?tamanho=" + param_tam + "&dificuldade=" + param_dif} break;
+        case "continuar":   {apiRedirect = "./api/continuar?tamanho=" + param_tam + "&dificuldade=" + param_dif + "&linha=" + param_lin + "&coluna=" + param_col} break;
+        case "dificuldade": {apiRedirect = "./api/dificuldade?tamanho=" + param_tam} break;
+        case "tamanho":     {apiRedirect = "./api/tamanho"} break;
         case "creditos":    {apiRedirect = "./api/creditos"} break;
     }
     console.log(apiRedirect);

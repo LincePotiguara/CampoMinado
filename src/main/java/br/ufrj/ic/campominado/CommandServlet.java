@@ -6,11 +6,16 @@ import javax.ws.rs.*;
 @ApplicationPath("/api")
 @Path("hello")
 public class CommandServlet {
-    public static int[][] matrix;
+    public static int[][] matriz;
     public static void reset() {
         val = "";
-        matrix = new int[10][10];
+        matriz = new int[10][10];
     }
+
+    public static String initMatriz() {
+        return val;
+    }
+
     public static String printMatrix() {
         return "";
     }
