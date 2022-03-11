@@ -35,10 +35,11 @@ public class ContinuarResource {
         tabuleiro.append("<div style=\"display: flex;\">");
 
         for(int i = 0; i < tamanhoTabuleiro; i++) {
-            String temp = "<a onclick=\"ApiResponse('continuar', '$tamanho','$dificuldade', '$letra', '$numero')\"><div id='$letra$numero'class='quadrado'>$letra$numero</div></a>".replace(
+            String temp = "<a onclick=\"ApiResponse('continuar', '$tamanho','$dificuldade', '$letra', '$numero')\"><div id='$letra$numero'class='quadrado'>$caractere</div></a>".replace(
                     "$numero", valueOf(i))
                     .replace("$tamanho", tamanho)
-                    .replace("$dificuldade", dificuldade);
+                    .replace("$dificuldade", dificuldade)
+                    .replace("$caractere", "#");
             tabuleiro.append(temp);
         }
         tabuleiro.append("</div>");

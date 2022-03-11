@@ -7,13 +7,13 @@ import javax.ws.rs.*;
 @Path("hello")
 public class CommandServlet {
     public static int[][] matriz;
-    public static void reset() {
+    public static void reset(int tamanho) {
         val = "";
-        matriz = new int[10][10];
+        matriz = initMatriz(tamanho);
     }
 
-    public static String initMatriz() {
-        return val;
+    public static int[][] initMatriz(int tamanho) {
+        return new int[tamanho][tamanho];
     }
 
     public static String printMatrix() {

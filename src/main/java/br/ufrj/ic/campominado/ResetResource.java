@@ -8,6 +8,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import java.util.Scanner;
 
 
 @Path("reset")
@@ -21,7 +22,10 @@ public class ResetResource {
                         @Context UriInfo uriInfo) {
 
         // reseta o estado da aplicação
-        CommandServlet.reset();
+        int m_tamanho = Integer.parseInt(tamanho.split("x")[0]);
+        int m_linha = Integer.parseInt(linha);
+        int m_coluna = Integer.parseInt(coluna);
+        CommandServlet.reset(m_tamanho);
 
         return Response.status(302).location(
                 uriInfo.getBaseUriBuilder().path("continuar")

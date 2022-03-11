@@ -4,7 +4,7 @@
 <head>
     <title>Mainz' Craft | Campo Minado</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/index.css">
-    link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" sizes="any"
+    <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" sizes="any">
     <link rel="icon" href="${pageContext.request.contextPath}/favicon.svg" type="image/svg+xml">
     <script src="index.js"></script>
 </head>

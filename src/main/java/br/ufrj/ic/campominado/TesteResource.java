@@ -7,6 +7,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Scanner;
 
 
 @Path("teste")
@@ -22,11 +24,12 @@ public class TesteResource {
                         @Context HttpServletRequest request,
                         @Context HttpServletResponse response) {
         // reseta o estado da aplicação
-        CommandServlet.reset();
+        //CommandServlet.reset();
 
         //UriBuilder uu = new UriBuilder() (uriInfo.getBaseUriBuilder().path("continuar"));
+        //CommandServlet.reset(in.nextInt());
 
-        String pls = "Hellooooo";
+        String pls = tamanho.split("x")[0];
         /*
         String tam = uriInfo.getBaseUriBuilder().path("continuar")
                 .queryParam("tamanho", request.getParameter("tamanho"))

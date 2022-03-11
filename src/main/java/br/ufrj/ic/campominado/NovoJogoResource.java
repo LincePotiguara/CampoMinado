@@ -21,7 +21,7 @@ public class NovoJogoResource {
                         @Context HttpServletRequest request,
                         @Context UriInfo uriInfo) {
         // reseta o estado da aplicação
-        CommandServlet.reset();
+        //CommandServlet.reset();
 
         return Response.status(302).location(
                 uriInfo.getBaseUriBuilder().path("continuar")
