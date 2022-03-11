@@ -30,16 +30,21 @@ public class ContinuarResource {
         }
         int m_linha;
         int m_coluna;
-        if(linha != null && coluna != null) {
-            m_coluna = Integer.parseInt(coluna);
-            m_linha = Integer.parseInt(linha);
-            CommandServlet.clique(m_linha, m_coluna);
-        }
+
+            if (linha != null && coluna != null) {
+                try {
+                m_coluna = Integer.parseInt(coluna);
+                m_linha = Integer.parseInt(linha);
+                CommandServlet.clique(m_linha, m_coluna);
+                } catch (NumberFormatException e){
+                    return String.format("Numeros invalidos {%s : %s}", linha, coluna);
+                }
+            }
 
         String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         tabuleiro.append("<div style=\"display: flex;\">");
-
+        if (tamanhoTabuleiro == 0) {tamanhoTabuleiro = CommandServlet.tamanhoMatriz;}
         for(int i = 0; i < tamanhoTabuleiro; i++) {
             String temp = "<a onclick=\"ApiResponse('continuar', '$tamanho','$dificuldade', '$linha', '$coluna')\"><div id='$linha$coluna'class='quadrado'>#caractere</div></a>".replace(
                     "$coluna", valueOf(i))
@@ -75,6 +80,6 @@ public class ContinuarResource {
                 resposta = resposta.replaceFirst("#caractere", String.valueOf(campo[i][j]));
             }
         }
-        return resposta + s;
+        return resposta + s + " Ok";
     }
 }

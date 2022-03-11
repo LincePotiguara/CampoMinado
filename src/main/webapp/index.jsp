@@ -12,7 +12,7 @@
 <div id="menu" style="background-color: lightgrey" class="menu-nav-side">
     <h1><%= "MineSweeper" %></h1>
     <p><a onclick="ApiResponse('tamanho', '10x10')">Novo Jogo &#128163;</a></p>
-    <p><a onclick="ApiResponse('continuar')">Continuar</a></p>
+    <p><a onclick="ApiResponse('continuar', 'x', 'x', '99', '99')">Continuar</a></p>
     <!--tamanho redireciona para difficuldade
     <p><a onclick="ApiResponse('tamanho')">Dificuldade</a></p>
     -->
