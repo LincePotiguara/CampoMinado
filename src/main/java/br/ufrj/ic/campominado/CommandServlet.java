@@ -11,6 +11,9 @@ public class CommandServlet {
         val = "";
         matrix = new int[10][10];
     }
+    public static String printMatrix() {
+        return "";
+    }
 
     private static String val = "";
     @GET

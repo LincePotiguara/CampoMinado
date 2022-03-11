@@ -2,6 +2,8 @@ package br.ufrj.ic.campominado;
 
 import javax.ws.rs.*;
 
+import java.util.Arrays;
+
 import static java.lang.String.valueOf;
 
 
@@ -9,13 +11,22 @@ import static java.lang.String.valueOf;
 public class ContinuarResource {
     @GET
     @Produces("text/html")
-    public String tabuleiro(@QueryParam("tamanho") @DefaultValue("") String tamanho) {
+    public String tabuleiro(@QueryParam("tamanho") @DefaultValue("") String tamanho,
+                            @QueryParam("linha") @DefaultValue("") String linha,
+                            @QueryParam("coluna") @DefaultValue("") String coluna) {
         StringBuilder tabuleiro = new StringBuilder();
-        int linha = 0;
+        String[] l1 = tamanho.split(":");
+        tamanho = l1[0];
+        if(l1.length > 1){
+            linha = l1[1].split("=")[1];
+            coluna = l1[2].split("=")[1];
+        }
+
+        int tamanhoTabuleiro = 0;
         switch (tamanho) {
-            case "10x10": linha = 10; break;
-            case "15x15": linha = 15; break;
-            case "20x20": linha = 20; break;
+            case "10x10": tamanhoTabuleiro = 10; break;
+            case "15x15": tamanhoTabuleiro = 15; break;
+            case "20x20": tamanhoTabuleiro = 20; break;
         }
 
         String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -23,18 +34,18 @@ public class ContinuarResource {
 
         tabuleiro.append("<div style=\"display: flex;\">");
 
-        for(int i = 0; i < linha; i++) {
-            String temp = "<a onclick=\"ApiResponse('continuar', '$letra$numero')\"><div id='$letra$numero'class='quadrado'>$letra$numero</div></a>".replace(
-                    "$numero", valueOf(i));
+        for(int i = 0; i < tamanhoTabuleiro; i++) {
+            String temp = "<a onclick=\"ApiResponse('jogando', '$tamanho', '$letra', '$numero')\"><div id='$letra$numero'class='quadrado'>$letra$numero</div></a>".replace(
+                    "$numero", valueOf(i)).replace("$tamanho", tamanho);
             tabuleiro.append(temp);
         }
         tabuleiro.append("</div>");
         String temp = tabuleiro.toString();
         String template = tabuleiro.toString();
         tabuleiro = new StringBuilder();
-        for(int i = 0; i < linha; i++) {
+        for(int i = 0; i < tamanhoTabuleiro; i++) {
             String temp2 = temp.replace(
-                    "$letra", valueOf(alfabeto.charAt(i)));
+                    "$letra", valueOf(i));
             tabuleiro.append(temp2);
         }
         // Essa função cria o campo. Modifique a classe quadrado e o style inline para mudar o estilo
@@ -42,6 +53,16 @@ public class ContinuarResource {
         // V
         tabuleiro.insert(0, "<div style=\"display: inline-block;\">");
         tabuleiro.append("</div>");
-        return tabuleiro.toString();
+
+        //linha = l1[1].split("=")
+        String[] ret;
+        /*
+        if(l1.length > 1){
+         ret = l1[1].split("=");
+            String s = linha +" + " + coluna;
+            return s;
+        }*/
+        String s = tamanho + "=" + linha +" + " + coluna;
+        return tabuleiro.toString() + "-" + s;
     }
 }
