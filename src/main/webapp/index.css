@@ -70,3 +70,15 @@ a.hover-text:hover {
     vertical-align: middle;
     line-height: 25px;
 }
+
+.revelado {
+    background-color: pink;
+}
+
+.numero {
+    background-color: gold;
+}
+
+.escondido {
+    background-color: gray;
+}

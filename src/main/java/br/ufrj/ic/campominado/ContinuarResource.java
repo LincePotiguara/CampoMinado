@@ -46,7 +46,7 @@ public class ContinuarResource {
         tabuleiro.append("<div style=\"display: flex;\">");
         if (tamanhoTabuleiro == 0) {tamanhoTabuleiro = CommandServlet.tamanhoMatriz;}
         for(int i = 0; i < tamanhoTabuleiro; i++) {
-            String temp = "<a onclick=\"ApiResponse('continuar', '$tamanho','$dificuldade', '$linha', '$coluna')\"><div id='$linha$coluna'class='quadrado'>#caracter</div></a>".replace(
+            String temp = "<a onclick=\"ApiResponse('continuar', '$tamanho','$dificuldade', '$linha', '$coluna')\"><div class='quadrado #classe'>#caracter</div></a>".replace(
                     "$coluna", valueOf(i))
                     .replace("$tamanho", tamanho)
                     .replace("$dificuldade", dificuldade);
@@ -78,15 +78,19 @@ public class ContinuarResource {
         for (int i = 0; i < tamanhoTabuleiro; i++) {
             for (int j = 0; j < tamanhoTabuleiro; j++) {
                 String subst = "";
+                String decor = "";
                 switch (campo[i][j] % 2) {
                     case 1:
+                        decor = "revelado";
                         subst = "#";
                         break;
                     case 0:
+                        decor = "escondido";
                         subst = "*";
                         break;
                 }
-                resposta = resposta.replaceFirst("#caracter", subst);
+                resposta = resposta.replaceFirst("#caracter", subst)
+                        .replaceFirst("#classe", decor);
             }
         }
         return resposta + s + " Ok";
