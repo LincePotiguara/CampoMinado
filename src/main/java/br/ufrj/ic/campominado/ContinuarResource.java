@@ -79,15 +79,18 @@ public class ContinuarResource {
             for (int j = 0; j < tamanhoTabuleiro; j++) {
                 String subst = "";
                 String decor = "";
-                switch (campo[i][j] % 2) {
-                    case 1:
+                switch (campo[i][j]) {
+                    case 50:
                         decor = "revelado";
-                        subst = "#";
+                        subst = " ";
                         break;
                     case 0:
                         decor = "escondido";
-                        subst = "*";
+                        subst = "#";
                         break;
+                    default:
+                        decor = "numero";
+                        subst = "8";
                 }
                 resposta = resposta.replaceFirst("#caracter", subst)
                         .replaceFirst("#classe", decor);
