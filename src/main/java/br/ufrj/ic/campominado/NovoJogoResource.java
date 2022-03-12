@@ -28,10 +28,16 @@ public class NovoJogoResource {
             case "15x15": m_tamanho = 15; break;
             case "20x20": m_tamanho = 20; break;
         }
+        int m_dificuldade;
+        if (dificuldade.equals("facil")) {
+            m_dificuldade = 10;
+        } else {
+            m_dificuldade = 25;
+        }
         //int m_tamanho = Integer.parseInt(tamanho.split("x")[0]);
         //int m_linha = Integer.parseInt(linha);
         //int m_coluna = Integer.parseInt(coluna);
-        CommandServlet.reset(m_tamanho);
+        CommandServlet.reset(m_tamanho, m_dificuldade);
 
         return Response.status(302).location(
                 uriInfo.getBaseUriBuilder().path("continuar")

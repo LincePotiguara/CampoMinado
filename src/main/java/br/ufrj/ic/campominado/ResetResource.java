@@ -25,7 +25,8 @@ public class ResetResource {
         int m_tamanho = Integer.parseInt(tamanho.split("x")[0]);
         int m_linha = Integer.parseInt(linha);
         int m_coluna = Integer.parseInt(coluna);
-        CommandServlet.reset(m_tamanho);
+        int m_dificuldade = (dificuldade == "facil")? 10: 25;
+        CommandServlet.reset(m_tamanho, m_dificuldade);
 
         return Response.status(302).location(
                 uriInfo.getBaseUriBuilder().path("continuar")

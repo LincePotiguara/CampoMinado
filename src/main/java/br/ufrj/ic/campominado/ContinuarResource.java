@@ -20,6 +20,12 @@ public class ContinuarResource {
         StringBuilder tabuleiro = new StringBuilder();
         linha = uriInfo.getQueryParameters().getFirst("linha");
         coluna = uriInfo.getQueryParameters().getFirst("coluna");
+        int m_dificuldade;
+        if (dificuldade.equals("facil")) {
+            m_dificuldade = 10;
+        } else {
+            m_dificuldade = 25;
+        }
 
         int tamanhoTabuleiro = 0;
 
@@ -71,7 +77,7 @@ public class ContinuarResource {
         String resposta = tabuleiro.toString();
 
         int[][] campo = CommandServlet.getMatriz();
-        if (campo == null){
+        if (campo == null) {
             return resposta + "Campo eh null " + s;
         }
 
