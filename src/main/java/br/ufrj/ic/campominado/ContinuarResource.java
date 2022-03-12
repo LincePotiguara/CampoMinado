@@ -80,13 +80,18 @@ public class ContinuarResource {
                 String subst = "";
                 String decor = "";
                 switch (campo[i][j]) {
-                    case 50:
+                    case 0:
+                        // tem nada
                         decor = "revelado";
                         subst = " ";
                         break;
-                    case 0:
+                    case 50:
                         decor = "escondido";
                         subst = "#";
+                        break;
+                    case 100:
+                        decor = "bomba";
+                        subst = "&#128163;";
                         break;
                     default:
                         decor = "numero";
